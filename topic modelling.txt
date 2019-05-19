@@ -1,0 +1,91 @@
+﻿1) Why is Topic Modelling important:
+One of the primary applications of natural language processing is to automatically extract what topics people are discussing from large volumes of text.
+Some examples of large text could be feeds from social media, customer reviews of hotels, movies, etc, user feedbacks, news stories, e-mails of customer complaints etc.
+Knowing what people are talking about and understanding their problems and opinions is highly valuable to businesses, administrators, political campaigns. 
+And it’s really hard to manually read through such large volumes and compile the topics.
+Thus is required an automated algorithm that can read through the text documents and automatically output the topics discussed.
+2)What is topic modelling?
+ Topics can be defined as “a repeating pattern of co-occurring terms in a corpus”.
+ A good topic model should result in – “health”, “doctor”, “patient”, “hospital” for a topic – Healthcare, and “farm”, “crops”, “wheat” for a topic – “Farming”.
+Topic Models are very useful for the purpose for document clustering, organizing large blocks of textual data, information retrieval from unstructured text 
+and feature selection. For Example – New York Times are using topic models to boost their user – article recommendation engines. 
+Various professionals are using topic models for recruitment industries where they aim to extract latent features of job descriptions
+ and map them to right candidates. They are being used to organize large datasets of emails, customer reviews, and user social media profiles.
+3) What is input to topic model function?
+	a) 
+
+	term document matrix
+	b) Dictionary of all the terms and there respective location.
+4) What is each topic?
+It is simply bag of words
+5) Parameters of LDA
+Alpha and Beta Hyperparameters – alpha represents document-topic density and Beta represents topic-word density.
+									Higher the value of alpha, documents are composed of more topics and lower the value of alpha, documents contain fewer topics.
+								On the other hand, higher the beta, topics are composed of a large number of words in the corpus, and with the lower value of beta, 
+								they are composed of few words.
+Number of Topics – Number of topics to be extracted from the corpus. Researchers have developed approaches to obtain an optimal number of topics by
+					using Kullback Leibler Divergence Score. I will not discuss this in detail, as it is too mathematical. For understanding, one can 
+					refer to this[1] original paper on the use of KL divergence.
+Number of Topic Terms – Number of terms composed in a single topic. It is generally decided according to the requirement.
+						If the problem statement talks about extracting themes or concepts, it is recommended to choose a higher number,
+						if problem statement talks about extracting features or terms, a low number is recommended.
+Number of Iterations / passes – Maximum number of iterations allowed to LDA algorithm for convergence.
+6) How to Create a Text File
+f= open("guru99.txt","w+")
+for i in range(10):
+     f.write("This is line %d\r\n" % (i+1))
+f.close() 
+7)How to Append Data to a File
+f=open("guru99.txt", "a+")
+for i in range(2):
+     f.write("Appended line %d\r\n" % (i+1))
+8)How 
+ Read a File:
+f=open("guru99.txt", "r")
+contents =f.read()
+9) To avoid \n while reading files?
+with open("guru99.txt", 'r') as fh:
+    for line in fh:
+        line = line.rstrip("\n")
+        print(line)
+10 How LDA works?
+1st we need to decide the number  of topics we want to create i.e it can be in corpus.Corpus is nothing but collection of documents  in an organised mannner
+2nd we will randomly assign each word in each document to one  of the selected no of topics
+3rd we will go through every word and its topic assignment in each document. & look at
+	1) how often the topics occurs in a document and (2) how often the word occus in the topic overall.Based on this info, assign the word to a new topic
+4th  so 3rd will repaeat again  and  again till we get the sesne out of topic
+Example - Suppose I have 1 document  and i randomly assign topic to each word in the document.Let say i assign topic "Animals" to word banana.
+		  Now i will check how many time topic "Animals" occurs in document and i notice it is  very rare
+		  Then I will check how many time the word "banana" occurs in topic "Animals" we notice it rare again
+		  Hence we will assign the word "banana" to topic "Food"
+		  So in this way the process will repeat till we get sensisble words under a topic i.e good topic - words combination
+11)Which package does below things for us?
+its gensim
+12)what is Tf-idf score
+tf-idf is used to weight words according to how important they are.
+It also takes into account some of the words appear in many documents and hence don't really tell us much
+13) Refer topic modelling python code present in topic modelling folder
+There are 4 codes ... first 3 implementation by LDA and 4th by LSA
+For LDA first is little simplte , second is tough and third is tougher so start from 1st and then go till 3rd
+4th code is for LSA
+14) Latent Semantic Analysis
+LSA learns latent topics by performing a matrix decomposition on the document-term matrix using Singular value decomposition.
+LSA is typically used as a dimension reduction or noise reducing technique.	 
+15) Diff between LSA and LDA?
+LSA (also known as Latent Semantic Analysis, LSA) learns latent topics by performing a matrix decomposition (SVD) on the term-document matrix.
+LDA is a generative probabilistic model, that assumes a Dirichlet prior over the latent topics.
+In practice, LSI is much faster to train than LDA, but has lower accuracy.
+16)Few more efficient topic modelling?
+I will be using the Latent Dirichlet Allocation (LDA) from Gensim package along with the Mallet’s implementation (via Gensim). 
+Mallet has an efficient implementation of the LDA. It is known to run faster and gives better topics segregation.
+17)Difference between LDA and LSA
+LSI (also known as Latent Semantic Analysis, LSA) learns latent topics by performing a matrix decomposition (SVD) on the term-document matrix. 
+Basically it takes context of the text into consideration.
+LDA is a generative probabilistic model, 
+that assumes a Dirichlet prior over the latent topics. In practice, LSI is much faster to train than LDA, but has lower accuracy.
+18)Why is bigram/trigram phraser model  is used  with gensim topic modelling?
+bigram/trigram phraser model is used for fast and efficient usage of computer memory
+
+
+
+
