@@ -12,25 +12,11 @@ and feature selection. For Example – New York Times are using topic models to 
 Various professionals are using topic models for recruitment industries where they aim to extract latent features of job descriptions
  and map them to right candidates. They are being used to organize large datasets of emails, customer reviews, and user social media profiles.
 3) What is input to topic model function?
-	a) 
-
-	term document matrix
+	a) term document matrix
 	b) Dictionary of all the terms and there respective location.
 4) What is each topic?
 It is simply bag of words
-5) Parameters of LDA
-Alpha and Beta Hyperparameters – alpha represents document-topic density and Beta represents topic-word density.
-									Higher the value of alpha, documents are composed of more topics and lower the value of alpha, documents contain fewer topics.
-								On the other hand, higher the beta, topics are composed of a large number of words in the corpus, and with the lower value of beta, 
-								they are composed of few words.
-Number of Topics – Number of topics to be extracted from the corpus. Researchers have developed approaches to obtain an optimal number of topics by
-					using Kullback Leibler Divergence Score. I will not discuss this in detail, as it is too mathematical. For understanding, one can 
-					refer to this[1] original paper on the use of KL divergence.
-Number of Topic Terms – Number of terms composed in a single topic. It is generally decided according to the requirement.
-						If the problem statement talks about extracting themes or concepts, it is recommended to choose a higher number,
-						if problem statement talks about extracting features or terms, a low number is recommended.
-Number of Iterations / passes – Maximum number of iterations allowed to LDA algorithm for convergence.
-6) How to Create a Text File
+5) How to Create a Text File
 f= open("guru99.txt","w+")
 for i in range(10):
      f.write("This is line %d\r\n" % (i+1))
@@ -65,9 +51,11 @@ its gensim
 tf-idf is used to weight words according to how important they are.
 It also takes into account some of the words appear in many documents and hence don't really tell us much
 13) Refer topic modelling python code present in topic modelling folder
-There are 4 codes ... first 3 implementation by LDA and 4th by LSA
-For LDA first is little simplte , second is tough and third is tougher so start from 1st and then go till 3rd
-4th code is for LSA
+There are 4 codes below:
+1st refer topic_modelling.ipynb
+2nd refer lsa_ldakaggale.ipynb for EDA on text and for validating our lda model we create clusters
+3rd refer LDA_May18.ipynb which contains different ways to visualise our  result and few way to tune  our mode.Also go through link preset in it.
+4th we can refer lsa_topicmodelling.ipynb and try to do whaetver we did in LDA.Also refer kaggale file for LSA
 14) Latent Semantic Analysis
 LSA learns latent topics by performing a matrix decomposition on the document-term matrix using Singular value decomposition.
 LSA is typically used as a dimension reduction or noise reducing technique.	 
@@ -84,7 +72,7 @@ Basically it takes context of the text into consideration.
 LDA is a generative probabilistic model, 
 that assumes a Dirichlet prior over the latent topics. In practice, LSI is much faster to train than LDA, but has lower accuracy.
 18)Why is bigram/trigram phraser model  is used  with gensim topic modelling?
-bigram/trigram phraser model is used for fast and efficient usage of computer memory
+bigram/trigram phraser model is used for fast and efficient usage of computer memory.Also it takes into consideration of bigram words while creating the topic.
 
 
 
